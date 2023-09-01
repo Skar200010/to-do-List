@@ -8,12 +8,15 @@ var mongoose = require('mongoose');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+const listRouter = require('./routes/lists');
 var taskRoutes = require('./routes/tasks');
 const taskDurationRoutes = require('./routes/taskDurations');
 const taskPriorityRoutes = require('./routes/taskPriorities');
-const listRoutes = require('./routes/lists');
 
+
+const bodyParser = require('body-parser');
 var app = express();
+app.use(bodyParser.json());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -26,11 +29,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use('/',listRouter);
 app.use('/', taskRoutes);
 app.use('/users', usersRouter);
 //app.use('/', taskDurationRoutes);
 //app.use('/', taskPriorityRoutes);
-//app.use('/', listRoutes);
+
 
 
 // catch 404 and forward to error handler
