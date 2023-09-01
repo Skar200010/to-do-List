@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const listSchema = new mongoose.Schema({
-    title: {
+    list_title: {
       type: String,
       required: true,
     },
