@@ -2,8 +2,8 @@ const List = require('../models/List');
 //create a new list
 exports. createList = async (req, res) => {
   try {
-    const{list_titl,tasks}=req.body;
-    const newList = new List({list_titl,tasks});
+    const{list_title}=req.body;
+    const newList = new List({list_title,userId});
     const savedList=await
      newList.save();
     res.status(201).json(savedList);
@@ -42,7 +42,7 @@ exports.updateListById = async (req, res) => {
       runValidators: true,
     });
     if (updatedList) {
-      res.json(updatedlist);
+      res.json(updatedList);
     } else {
       res.status(404).json({ message: 'list not found' });
     }
@@ -54,7 +54,7 @@ exports.updateListById = async (req, res) => {
 // Delete a list by ID
 exports.deleteListById = async (req, res) => {
   try {
-    const deletedList = await list.findByIdAndRemove(req.params.id);
+    const deletedList = await List.findByIdAndRemove(req.params.id);
     if (deletedList) {
       res.json({ message: 'list deleted successfully' });
     } else {

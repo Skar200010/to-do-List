@@ -4,13 +4,7 @@ const listSchema = new mongoose.Schema({
       type: String,
       required: true,
     },
-    tasks: [
-      {
-        id: String,
-        taskName: String,
-        completed: Boolean,
-      },
-    ],
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
   });
   
   const List = mongoose.model('List', listSchema);
