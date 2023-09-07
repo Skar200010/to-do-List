@@ -1,35 +1,30 @@
-//const { promiseImpl } = require('ejs');
+
 const Task = require('../models/Task');
 
 //create new task 
 const createTask = async (req, res) => {
-  try {
-    const { taskName, taskDescription, duration, priority } = req.body;
-    const userId = req.user.userId;
-
-    if (!['low', 'medium', 'high'].includes(priority)) {
-      return res.status(400).json({ error: 'Invalid priority value' });
+    try {
+      const { taskName, taskDescription } = req.body;
+      const listId = req.list.listId;
+  
+      const newTask = new Task({
+        taskName,
+        taskDescription,
+        listId
+      });
+       
+      await newTask.save();
+      res.status(201).json({ Message: 'Task created successfully' });
+    } catch (error) {
+      res.status(500).json({ Message: 'An error occurred while creating the task' });
     }
-
-    const newTask = new Task({
-      taskName,
-      taskDescription,
-      duration,
-      priority,
-      userId
-    });
-     
-    await newTask.save();
-    res.status(201).json({Message : 'Task created Succesfully' });
-} catch (error){
-    res.status(500).json({Messasge : 'An error occured while creating the task '});
-}
-};
+  };
+  
 //update task
 const updateTask = async (req, res) =>{
     try {
         const taskId = req.params.id;
-        const { taskName , taskDescription , duration , priority } = req.body;
+        const { taskName , taskDescription } = req.body;
 
         //find by task by ID 
         const task = await Task.findById(taskId);
@@ -40,8 +35,6 @@ const updateTask = async (req, res) =>{
         //Update Task fields
         task.taskName = taskName;
         task.taskDescription = taskDescription;
-        task.duration = duration;
-        task.priority = priority;
 
         await task.save();
         res.json({ message: 'Task upadted successfuly'})

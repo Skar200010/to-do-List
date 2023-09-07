@@ -11,7 +11,7 @@ var usersRouter = require('./routes/users');
 const listRouter = require('./routes/lists');
 var taskRoutes = require('./routes/tasks');
 const taskDurationRoutes = require('./routes/taskDurations');
-const taskPriorityRoutes = require('./routes/taskPriorities');
+//const taskPriorityRoutes = require('./routes/taskPriorities');
 
 
 const bodyParser = require('body-parser');
@@ -32,7 +32,7 @@ app.use('/', indexRouter);
 app.use('/',listRouter);
 app.use('/', taskRoutes);
 app.use('/users', usersRouter);
-//app.use('/', taskDurationRoutes);
+app.use('/', taskDurationRoutes);
 //app.use('/', taskPriorityRoutes);
 
 
