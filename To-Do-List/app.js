@@ -9,7 +9,7 @@ var mongoose = require('mongoose');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const listRouter = require('./routes/lists');
-const taskRoutes = require('./routes/tasks');
+var taskRoutes = require('./routes/tasks');
 const taskDurationRoutes = require('./routes/taskDurations');
 //const taskPriorityRoutes = require('./routes/taskPriorities');
 
@@ -30,15 +30,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/',listRouter);
-<<<<<<< HEAD
 app.use('/', taskRoutes);
-app.use('/', usersRouter);
-=======
-app.use('/',taskRoutes);
 app.use('/users', usersRouter);
->>>>>>> e58b54b73c45e7b3ac41b0ce5087047fa44fd522
 app.use('/', taskDurationRoutes);
-
+//app.use('/', taskPriorityRoutes);
+p
 
 
 // catch 404 and forward to error handler

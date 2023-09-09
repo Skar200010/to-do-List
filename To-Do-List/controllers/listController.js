@@ -1,13 +1,13 @@
 const List = require('../models/List');
 //create a new list
-exports. createList = async (req, res) => {
+exports.createList = async (req, res) => {
   try {
-    const{list_title}=req.body;
+    const { list_title } = req.body;
     //const userId= req.body.userId;
-   const userId= req.user.userId;
-    const newList = new List({list_title,userId});
-    const savedList=await
-     newList.save();
+    const userId = req.user.userId;
+    const newList = new List({ list_title, userId });
+    const savedList = await
+      newList.save();
     res.status(201).json(savedList);
   } catch (error) {
     res.status(500).json({ message: 'could not create list' });
@@ -17,7 +17,7 @@ exports. createList = async (req, res) => {
 exports.getAllLists = async (req, res) => {
   try {
     const lists = await List.find({}).populate('userId');
-    res.json({count:lists.length,lists:lists});
+    res.json({ count: lists.length, lists: lists });
   } catch (error) {
     res.status(500).json({ error: 'Could not retrieve lists' });
   }
