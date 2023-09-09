@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 //to-do-lists database
-mongoose.connect("mongodb://localhost:27017/to-do-lists", {
+mongoose.connect("mongodb+srv://khedekarsohan10:Sohan10@cluster0.4faguxu.mongodb.net/to-do-lists", {
    useNewUrlParser: true,
    useUnifiedTopology: true
 })
