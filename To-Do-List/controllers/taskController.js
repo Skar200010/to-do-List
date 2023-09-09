@@ -4,8 +4,8 @@ const Task = require('../models/Task');
 //create new task 
 const createTask = async (req, res) => {
     try {
-      const { taskName, taskDescription } = req.body;
-      const listId = req.list.listId;
+      const { taskName, taskDescription ,listId } = req.body;
+      //const listId = req.list.listId;
   
       const newTask = new Task({
         taskName,
@@ -61,9 +61,10 @@ const deleteTask = async (req , res) => {
     
     const getTask = async (req , res) => {
         try {
-            const userId = req.user.userId;
-
-            const tasks = await Task.findById({userId});
+           // const userId = req.user.userId;
+           //const tasks = await Task.find({}).populate('listId');
+           const tasks = await Task.find({});
+            //const tasks = await Task.findById({userId});
             res.json(tasks);   
         }
             catch (error) {
