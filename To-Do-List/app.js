@@ -9,7 +9,7 @@ var mongoose = require('mongoose');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const listRouter = require('./routes/lists');
-var taskRoutes = require('./routes/tasks');
+const taskRoutes = require('./routes/tasks');
 const taskDurationRoutes = require('./routes/taskDurations');
 //const taskPriorityRoutes = require('./routes/taskPriorities');
 
