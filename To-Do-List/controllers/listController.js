@@ -3,8 +3,8 @@ const List = require('../models/List');
 exports.createList = async (req, res) => {
   try {
     const { list_title } = req.body;
-    //const userId= req.body.userId;
-    const userId = req.user.userId;
+    const userId= req.body.userId;
+    //const userId = req.user.userId;
     const newList = new List({ list_title, userId });
     const savedList = await
       newList.save();
