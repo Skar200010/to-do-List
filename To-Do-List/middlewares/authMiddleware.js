@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const { secretKey } = require('../config'); // Replace with your secret key configuration
+//const { secretKey } = require('../config'); // Replace with your secret key configuration
 
 // Middleware function to check for a valid JWT token
 const authenticateToken = (req, res, next) => {

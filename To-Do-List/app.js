@@ -30,10 +30,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/',listRouter);
-app.use('/', taskRoutes);
+app.use('/',taskRoutes);
 app.use('/users', usersRouter);
 app.use('/', taskDurationRoutes);
-//app.use('/', taskPriorityRoutes);
 
 
 
