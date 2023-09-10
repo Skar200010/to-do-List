@@ -31,15 +31,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/',listRouter);
 app.use('/', taskRoutes);
-app.use('/users', usersRouter);
+app.use('/', usersRouter);
 app.use('/', taskDurationRoutes);
 //app.use('/', taskPriorityRoutes);
-p
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
+  console.log(createError)
 });
 
 // error handler

@@ -35,8 +35,9 @@ const loginUser = async (req, res) => {
     if (!passwordMatch) {
       return res.status(401).json({ error: 'Invalid email or password' });
     }
-
-    const token = jwt.sign({ userId: user._id }, 'your-secret-key');
+const secretKey  = "todolistuser"
+    
+    const token = jwt.sign({ userId: user._id },secretKey );
     res.json({ token });
   } catch (error) {
     res.status(500).json({ error: 'An error occurred while logging in' });
