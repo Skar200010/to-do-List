@@ -5,7 +5,7 @@ const router = express.Router();
 //create a new list
 router.post('/lists',validateList, listController.createList);
 // Get all lists
-router.get('/lists',authenticateToken, listController.getAllLists);
+router.get('/lists', listController.getAllLists);
 // Get a specific list by ID
 router.get('/lists/:id', listController.getListById);
 

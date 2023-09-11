@@ -1,4 +1,4 @@
-// const { body, validationResult } = require('express-validator');
+ const { body, validationResult } = require('express-validator');
 
 // const createTaskValidation = [
 //   body('taskName').notEmpty().withMessage('Task name is required'),
@@ -20,7 +20,7 @@
 
 
 
-const TaskDuration = require('../models/taskDurationModel');
+//const TaskDuration = require('../models/taskDurationModel');
 
 const validateTaskDuration = async (req, res, next) => {
   try {
@@ -46,4 +46,4 @@ const validateTaskDuration = async (req, res, next) => {
   }
 };
 
-module.exports = validateTaskDuration;
+module.exports = {validateTaskDuration};

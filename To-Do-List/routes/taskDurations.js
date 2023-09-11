@@ -29,8 +29,10 @@
 const express = require('express');
 const router = express.Router();
 const taskDurationController = require('../controllers/taskDurationController');
+const {validateTaskDuration} = require('../middlewares/durationMiddleware');
 
-router.post('/createDuration', taskDurationController.createTaskDuration);
-router.get('/getDurations', taskDurationController.getTaskDurations);
+
+router.post('/createDuration',validateTaskDuration, taskDurationController.createTaskDuration);
+router.get('/getDurations',validateTaskDuration, taskDurationController.getTaskDurations);
 
 module.exports = router;
