@@ -43,5 +43,37 @@ const secretKey  = "todolistuser"
     res.status(500).json({ error: 'An error occurred while logging in' });
   }
 };
+// Get user profile by ID
+const getUserProfile = async (req, res) => {
+  try {
+    const userId = req.params.id;
+    const user = await User.findById(userId);
 
-module.exports = { registerUser, loginUser };
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    res.json(user);
+  } catch (error) {
+    res.status(500).json({ error: 'An error occurred while fetching user profile' });
+  }
+};
+
+// Update user profile by ID
+const updateUserProfile = async (req, res) => {
+  try {
+    const userId = req.params.id;
+    const { username, email } = req.body;
+    const updatedUser = await User.findByIdAndUpdate(userId, { username, email }, { new: true });
+
+    if (!updatedUser) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    res.json(updatedUser);
+  } catch (error) {
+    res.status(500).json({ error: 'An error occurred while updating user profile' });
+  }
+};
+
+module.exports = { registerUser, loginUser , getUserProfile ,updateUserProfile};
