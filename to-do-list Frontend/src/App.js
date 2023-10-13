@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { BrowserRouter as Router, Route, Routes,Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import './App.css';
 import UserRegistrationForm from './components/Users/UserRegistrationForm';
 import UserLoginForm from './components/Users/UserLoginForm';
@@ -19,9 +19,14 @@ function App() {
         </header>
         <Link to="/register">Register</Link>
         <Routes>
-        <Route path="/creatlist" element={<Lists />} />
+          <Route path="/register" element={<UserRegistrationForm />} />
+          <Route path="/login" element={<UserLoginForm  />} />
+          <Route path="/profile" element={<UserProfile  />} />
+          <Route path="/creatlist" element={<Lists />} />
           <Route path="/listdel" element={<ListsDel />} />
-</Routes>
+          <Route path="/tasks" element={<TaskManager />} />
+          <Route path="/TaskDurationComponent" element={<TaskDurationComponent />} />
+        </Routes>
       </div>
     </Router>
   );
