@@ -2,6 +2,7 @@ const jwt = require('jsonwebtoken');
 const secretKey  = "todolistuser"
 // Middleware function to check for a valid JWT token
 const authenticateToken = (req, res, next) => {
+  
   const token = req.headers.authorization.split(' ')[1];
   
   console.log(token)

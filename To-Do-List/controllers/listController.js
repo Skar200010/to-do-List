@@ -3,9 +3,9 @@ const List = require('../models/List');
 exports.createList = async (req, res) => {
   try {
     const { list_title } = req.body;
-    const userId= req.body.userId;
+    //const userId= req.body.userId;
     //const userId = req.user.userId;
-    const newList = new List({ list_title, userId });
+    const newList = new List({ list_title});
     const savedList = await
       newList.save();
     res.status(201).json(savedList);
