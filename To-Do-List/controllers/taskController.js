@@ -65,7 +65,7 @@ const deleteTask = async (req , res) => {
            //const tasks = await Task.find({}).populate('listId');
            const tasks = await Task.find({});
             //const tasks = await Task.findById({userId});
-            res.json(tasks);   
+            res.json(tasks);
         }
             catch (error) {
                 res.status(500).json({ error: 'An error ocurred while fetching tasks'});   
