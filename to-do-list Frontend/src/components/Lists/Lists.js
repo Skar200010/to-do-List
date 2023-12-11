@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './Lists.css'; // Import your CSS file
 import { Link } from 'react-router-dom'; // Import the Link component
 
 const Lists = () => {
@@ -42,16 +43,16 @@ const Lists = () => {
     }
   };
    return (
-    <div>
+    <div className='main'>
       <h1>To-Do Lists</h1>
-      <div>
+      <div className="container">
         <input
           type="text"
           placeholder="Enter a new list title"
           value={newListTitle}
           onChange={(e) => setNewListTitle(e.target.value)}
         />
-        <button onClick={handleCreateList}>Create List</button>
+        <button className ="centered-button" onClick={handleCreateList}>Create List</button>
       </div>
       <ul>
         {lists.map((list) => (

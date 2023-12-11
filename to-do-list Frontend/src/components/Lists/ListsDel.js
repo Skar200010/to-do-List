@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import './ListsDel.css';
 const ListsDel = () => {
   const [lists, setLists] = useState([]);
   const [listMapping, setListMapping] = useState({});
@@ -106,13 +106,13 @@ const ListsDel = () => {
     })
       .then(() => {
         fetchLists();
-        setSelectedListId('');
+        setSelectedListNumber('');
         alert('List deleted successfully');
       })
       .catch((error) => console.error('Error deleting list by ID:', error));
   };
   return (
-    <div>
+    <div className='main'>
       <h2>To-Do List</h2>
      
       <div>
@@ -123,9 +123,9 @@ const ListsDel = () => {
           onChange={(e) => setSelectedListNumber(e.target.value)}
         />
         <button onClick={handleGetAllLists}>Get All Lists</button>
-        <button onClick={handleGetListById}>Get List by ID</button>
-        <button onClick={handleUpdateListById}>Update List by ID</button>
-        <button onClick={handleDeleteListById}>Delete List by ID</button>
+        <button onClick={handleGetListById}>Get List by List Number</button>
+        <button onClick={handleUpdateListById}>Update List by List Number</button>
+        <button onClick={handleDeleteListById}>Delete List by List Number</button>
       </div>
       <div>
         <input
