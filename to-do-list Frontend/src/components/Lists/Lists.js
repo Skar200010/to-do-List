@@ -12,7 +12,7 @@ const Lists = () => {
       .then((data) => setLists(data.lists))// Update the 'lists' state with the fetched data
       .catch((error) => console.error('Error fetching lists:', error));
   }, []);
-
+ 
   // This *-function is responsible for creating a new list
   const handleCreateList = async () => {
     if (!newListTitle) {

@@ -7,7 +7,7 @@ var logger = require('morgan');
 var mongoose = require('mongoose');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+ //var usersRouter = require('./routes/users');
 const listRouter = require('./routes/lists');
 var taskRoutes = require('./routes/tasks');
 const taskDurationRoutes = require('./routes/taskDurations');
@@ -35,7 +35,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/',listRouter);
 app.use('/', taskRoutes);
-app.use('/', usersRouter);
+ //app.use('/', usersRouter);
 app.use('/', taskDurationRoutes);
 //app.use('/', taskPriorityRoutes);
 // catch 404 and forward to error handler

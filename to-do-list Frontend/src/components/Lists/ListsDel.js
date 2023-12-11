@@ -106,7 +106,7 @@ const ListsDel = () => {
     })
       .then(() => {
         fetchLists();
-        //setSelectedListId('');
+        setSelectedListId('');
         alert('List deleted successfully');
       })
       .catch((error) => console.error('Error deleting list by ID:', error));
